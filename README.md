@@ -1,6 +1,6 @@
 # Assignment 1: Internal DSL
 
-Base repositoryof the model-driven software development assignment 1: Internal DSL.
+Base repository of the model-driven software development assignment 1: Internal DSL.
 This repository provides three test classes:
 
 * `MachineStructureTest`: Tests on the structure of the state machine metamodel (use them if you feel lost).
