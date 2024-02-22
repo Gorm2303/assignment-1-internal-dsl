@@ -1,17 +1,24 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import main.metamodel.Machine;
+import main.metamodel.State;
 
 public class StateMachine {
+	private Machine machine;
+	private List<State> states = new ArrayList<State>();
 
 	public Machine build() {
-		// TODO Auto-generated method stub
-		return null;
+		machine = new Machine();
+		machine.getStates().addAll(states);
+        return machine;
 	}
 
 	public StateMachine state(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		states.add(new State(string));
+		return this;
 	}
 
 	public StateMachine initial() {

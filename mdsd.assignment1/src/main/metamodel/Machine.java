@@ -1,12 +1,13 @@
 package main.metamodel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Machine {
+	private List<State> states = new ArrayList<>();
 
 	public List<State> getStates() {
-		// TODO Auto-generated method stub
-		return null;
+		return states;
 	}
 
 	public State getInitialState() {
