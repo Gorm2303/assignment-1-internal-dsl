@@ -1,14 +1,21 @@
 package main.metamodel;
 
+import org.w3c.dom.events.Event;
+
 public class Transition{
+	private String event;
+	private State target;
+	
+	public Transition(String event){
+		this.event = event;
+	}
+
 	public Object getEvent() {
-		// TODO Auto-generated method stub
-		return null;
+		return event;
 	}
 
 	public State getTarget() {
-		// TODO Auto-generated method stub
-		return null;
+		return target;
 	}
 
 	public boolean hasSetOperation() {
@@ -64,6 +71,10 @@ public class Transition{
 	public boolean hasOperation() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	public void setTarget(State state) {
+		this.target = state;		
 	}
 
 }

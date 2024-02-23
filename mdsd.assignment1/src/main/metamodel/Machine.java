@@ -11,12 +11,20 @@ public class Machine {
 	}
 
 	public State getInitialState() {
-		// TODO Auto-generated method stub
+		for (State s : states) {
+			if (s.isInitial()) {
+				return s;
+			}
+		}
 		return null;
 	}
 
 	public State getState(String string) {
-		// TODO Auto-generated method stub
+		for (State state : states) {
+			if (state.getName().equals(string)) {
+				return state;
+			}
+		}
 		return null;
 	}
 

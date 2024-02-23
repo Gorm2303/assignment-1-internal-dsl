@@ -5,40 +5,44 @@ import java.util.List;
 
 import main.metamodel.Machine;
 import main.metamodel.State;
+import main.metamodel.Transition;
 
 public class StateMachine {
 	private Machine machine;
-	private List<State> states = new ArrayList<State>();
+	private List<State> tempStates = new ArrayList<>();
+	private List<Transition> tempTransitions = new ArrayList<>();
+	Transition tempTransition;
+
 
 	public Machine build() {
 		machine = new Machine();
-		machine.getStates().addAll(states);
+		machine.getStates().addAll(tempStates);
         return machine;
 	}
 
 	public StateMachine state(String string) {
-		states.add(new State(string));
+		tempStates.add(new State(string));
 		return this;
 	}
 
 	public StateMachine initial() {
-		// TODO Auto-generated method stub
-		return null;
+		tempStates.get(tempStates.size() - 1).setInitial();
+		return this;
 	}
 
 	public StateMachine when(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		tempTransition = new Transition(string);
+		return this;
 	}
 
 	public StateMachine to(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		tempTransition.setTarget(new State(string));
+		tempStates.get(tempStates.size() - 1).getTransitions().add(tempTransition);
+		return this;
 	}
 
 	public StateMachine integer(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		return this;
 	}
 
 	public StateMachine set(String string, int i) {
