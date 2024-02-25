@@ -1,7 +1,9 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import main.metamodel.Machine;
 import main.metamodel.State;
@@ -10,13 +12,14 @@ import main.metamodel.Transition;
 public class StateMachine {
 	private Machine machine;
 	private List<State> tempStates = new ArrayList<>();
-	private List<Transition> tempTransitions = new ArrayList<>();
-	Transition tempTransition;
+	private Transition tempTransition;
+	private Map<String, Integer> tempIntegers = new HashMap<>();
 
 
 	public Machine build() {
 		machine = new Machine();
 		machine.getStates().addAll(tempStates);
+		machine.getIntegers().putAll(tempIntegers);
         return machine;
 	}
 
@@ -42,27 +45,34 @@ public class StateMachine {
 	}
 
 	public StateMachine integer(String string) {
+		tempIntegers.put(string, null);
 		return this;
 	}
 
 	public StateMachine set(String string, int i) {
-		// TODO Auto-generated method stub
-		return null;
+		tempTransition.setOperationVariableName(string);
+		tempTransition.setOperationValue(i);
+		tempTransition.setHasSetOperation();
+		return this;
 	}
 
 	public StateMachine increment(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		tempTransition.setOperationVariableName(string);
+		tempTransition.setHasIncrementOperation();
+		return this;
 	}
 
 	public StateMachine decrement(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		tempTransition.setOperationVariableName(string);
+		tempTransition.setHasDecrementOperation();
+		return this;
 	}
 
 	public StateMachine ifEquals(String string, int i) {
-		// TODO Auto-generated method stub
-		return null;
+		tempTransition.setConditionComparedName(string);
+		tempTransition.setConditionComparedValue(i);
+		tempTransition.setHasIfEqualsOperation();
+		return this;
 	}
 
 	public StateMachine ifGreaterThan(String string, int i) {

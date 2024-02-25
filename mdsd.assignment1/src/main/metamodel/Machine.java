@@ -1,10 +1,13 @@
 package main.metamodel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Machine {
 	private List<State> states = new ArrayList<>();
+	private Map<String, Integer> integers = new HashMap<>();
 
 	public List<State> getStates() {
 		return states;
@@ -29,13 +32,19 @@ public class Machine {
 	}
 
 	public int numberOfIntegers() {
-		// TODO Auto-generated method stub
-		return 0;
+		return integers.size();
 	}
 
 	public boolean hasInteger(String string) {
-		// TODO Auto-generated method stub
-		return false;
+		return integers.containsKey(string);
+	}
+
+	public Map<String, Integer> getIntegers() {
+		return integers;
+	}
+
+	public void setVariable(String variableName, int value) {
+		integers.put(variableName, value);
 	}
 }
 
