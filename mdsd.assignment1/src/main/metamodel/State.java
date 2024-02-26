@@ -1,12 +1,13 @@
 package main.metamodel;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class State {
 	private String name; 
 	private boolean initial = false;
-	private List<Transition> transitions = new ArrayList<>();
+	private List<Transition> transitions = new LinkedList<>();
 
 	public State(String string) {
 		this.name = string;
@@ -26,7 +27,12 @@ public class State {
 	}
 
 	public Transition getTransitionByEvent(String string) {
-		return transitions.stream().filter(transition -> transition.getEvent().equals(string)).findFirst().orElse(null);
+		for (Transition t : transitions) {
+			if (t.getEvent().equals(string)) {
+				return t;
+			}
+		}
+		return null;
 	}
 
 	public void setInitial() {

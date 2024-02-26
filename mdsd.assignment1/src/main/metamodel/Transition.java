@@ -5,12 +5,12 @@ public class Transition{
 	private State target;
 	private String operationVariableName;
 	private Integer operationValue;
-	private boolean hasSetOperation = false;
-	private boolean hasIncrementOperation = false;
-	private boolean hasDecrementOperation = false;
-	private boolean hasIfEqualsOperation = false;
+	private boolean setOperation = false;
+	private boolean incrementOperation = false;
+	private boolean decrementOperation = false;
 	private String conditionVariableName;
 	private Integer conditionComparedValue;
+	private boolean isConditional = false;
 	private boolean isConditionEqual = false;
 	private boolean isConditionGreaterThan = false;
 	private boolean isConditionLessThan = false;
@@ -39,16 +39,16 @@ public class Transition{
 		this.operationValue = operationValue;
 	}
 
-	public void setHasSetOperation() {
-		this.hasSetOperation = !hasSetOperation;
+	public void setSetOperation() {
+		this.setOperation = !setOperation;
 	}
 	
 	public boolean hasSetOperation() {
-		return hasSetOperation;
+		return setOperation;
 	}
 
-	public void setHasIncrementOperation() {
-		this.hasIncrementOperation = !hasIncrementOperation;
+	public void setIncrementOperation() {
+		this.incrementOperation = !incrementOperation;
 	}
 
 	public void incrementOperationValue() {
@@ -56,23 +56,23 @@ public class Transition{
 	}
 
 	public boolean hasIncrementOperation() {
-		return hasIncrementOperation;
+		return incrementOperation;
 	}
 
-	public void setHasDecrementOperation() {
-		this.hasDecrementOperation = !hasDecrementOperation;
+	public void setDecrementOperation() {
+		this.decrementOperation = !decrementOperation;
 	}
 
 	public void decrementOperationValue() {
 		this.operationValue--;
 	}
 
-	public boolean hasDecrementOperation() {
-		return hasDecrementOperation;
+	public boolean decrementOperation() {
+		return decrementOperation;
 	}
 
-	public void setHasIfEqualsOperation() {
-		this.hasIfEqualsOperation = !hasIfEqualsOperation;
+	public void setConditionOperation() {
+		this.isConditional = !isConditional;
 	}
 
 	public Object getOperationVariableName() {
@@ -80,7 +80,7 @@ public class Transition{
 	}
 
 	public boolean isConditional() {
-		return hasIfEqualsOperation;
+		return isConditional;
 	}
 
 	public Object getConditionVariableName() {
@@ -124,8 +124,7 @@ public class Transition{
 	}
 	
 	public boolean hasOperation() {
-		// TODO Auto-generated method stub
-		return false;
+		return (operationVariableName != null);
 	}
 
 	public void setTarget(State state) {

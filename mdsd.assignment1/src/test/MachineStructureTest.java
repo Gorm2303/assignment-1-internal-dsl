@@ -137,7 +137,7 @@ public class MachineStructureTest {
 		Transition transition = m.getState("state 1").getTransitions().get(0);
 		assertTrue(transition.hasSetOperation());
 		assertFalse(transition.hasIncrementOperation());
-		assertFalse(transition.hasDecrementOperation());
+		assertFalse(transition.decrementOperation());
 		assertEquals("var", transition.getOperationVariableName());
 	}
 	
@@ -152,7 +152,7 @@ public class MachineStructureTest {
 		Transition transition = m.getState("state 1").getTransitions().get(0);
 		assertFalse(transition.hasSetOperation());
 		assertTrue(transition.hasIncrementOperation());
-		assertFalse(transition.hasDecrementOperation());
+		assertFalse(transition.decrementOperation());
 		assertEquals("var", transition.getOperationVariableName());
 	}
 	
@@ -167,7 +167,7 @@ public class MachineStructureTest {
 		Transition transition = m.getState("state 1").getTransitions().get(0);
 		assertFalse(transition.hasSetOperation());
 		assertFalse(transition.hasIncrementOperation());
-		assertTrue(transition.hasDecrementOperation());
+		assertTrue(transition.decrementOperation());
 		assertEquals("var", transition.getOperationVariableName());
 	}
 

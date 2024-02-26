@@ -2,6 +2,7 @@ package main;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -11,7 +12,7 @@ import main.metamodel.Transition;
 
 public class StateMachine {
 	private Machine machine;
-	private List<State> tempStates = new ArrayList<>();
+	private List<State> tempStates = new LinkedList<>();
 	private Transition tempTransition;
 	private Map<String, Integer> tempIntegers = new HashMap<>();
 
@@ -52,37 +53,44 @@ public class StateMachine {
 	public StateMachine set(String string, int i) {
 		tempTransition.setOperationVariableName(string);
 		tempTransition.setOperationValue(i);
-		tempTransition.setHasSetOperation();
+		tempTransition.setSetOperation();
 		return this;
 	}
 
 	public StateMachine increment(String string) {
 		tempTransition.setOperationVariableName(string);
-		tempTransition.setHasIncrementOperation();
+		tempTransition.setIncrementOperation();
 		return this;
 	}
 
 	public StateMachine decrement(String string) {
 		tempTransition.setOperationVariableName(string);
-		tempTransition.setHasDecrementOperation();
+		tempTransition.setDecrementOperation();
 		return this;
 	}
 
 	public StateMachine ifEquals(String string, int i) {
 		tempTransition.setConditionComparedName(string);
 		tempTransition.setConditionComparedValue(i);
-		tempTransition.setHasIfEqualsOperation();
+		tempTransition.setConditionOperation();
+		tempTransition.setConditionEqual(true);
 		return this;
 	}
 
 	public StateMachine ifGreaterThan(String string, int i) {
-		// TODO Auto-generated method stub
-		return null;
+		tempTransition.setConditionComparedName(string);
+		tempTransition.setConditionComparedValue(i);
+		tempTransition.setConditionGreaterThan(true);
+		tempTransition.setConditionOperation();
+		return this;
 	}
 
 	public StateMachine ifLessThan(String string, int i) {
-		// TODO Auto-generated method stub
-		return null;
+		tempTransition.setConditionComparedName(string);
+		tempTransition.setConditionComparedValue(i);
+		tempTransition.setConditionLessThan(true);
+		tempTransition.setConditionOperation();
+		return this;
 	}
 
 }
