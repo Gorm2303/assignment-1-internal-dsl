@@ -43,8 +43,34 @@ public class Machine {
 		return integers;
 	}
 
-	public void setVariable(String variableName, int value) {
+	public void setVariable(String variableName, Integer value) {
 		integers.put(variableName, value);
+	}
+
+	public void setStates(ArrayList<State> arrayList) {
+		states = arrayList;
+	}
+
+    public void setIntegers(HashMap<String, Integer> hashMap) {
+		integers = hashMap;
+    }
+
+	public Integer getVariable(String string) {
+		return integers.get(string);
+	}
+
+	public void decrementVariable(String variableName) {
+		Integer value = getVariable(variableName);
+		if (value != null) {
+			setVariable(variableName, value - 1);
+		}
+	}
+
+	public void incrementVariable(String variableName) {
+		Integer value = getVariable(variableName);
+		if (value != null) {
+			setVariable(variableName, value + 1);
+		}
 	}
 }
 

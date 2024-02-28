@@ -19,7 +19,7 @@ public class Transition{
 		this.event = event;
 	}
 
-	public Object getEvent() {
+	public String getEvent() {
 		return event;
 	}
 
@@ -43,7 +43,7 @@ public class Transition{
 		this.setOperation = !setOperation;
 	}
 	
-	public boolean hasSetOperation() {
+	public boolean isSetOperation() {
 		return setOperation;
 	}
 
@@ -55,7 +55,7 @@ public class Transition{
 		this.operationValue++;
 	}
 
-	public boolean hasIncrementOperation() {
+	public boolean isIncrementOperation() {
 		return incrementOperation;
 	}
 
@@ -67,7 +67,7 @@ public class Transition{
 		this.operationValue--;
 	}
 
-	public boolean decrementOperation() {
+	public boolean isDecrementOperation() {
 		return decrementOperation;
 	}
 
@@ -75,7 +75,7 @@ public class Transition{
 		this.isConditional = !isConditional;
 	}
 
-	public Object getOperationVariableName() {
+	public String getOperationVariableName() {
 		return operationVariableName;
 	}
 
@@ -83,7 +83,7 @@ public class Transition{
 		return isConditional;
 	}
 
-	public Object getConditionVariableName() {
+	public String getConditionVariableName() {
 		return conditionVariableName;
 	}
 	
